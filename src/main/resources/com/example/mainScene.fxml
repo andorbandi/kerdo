@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
+<VBox alignment="CENTER" prefHeight="500.0" prefWidth="600.0" spacing="20" style="-fx-background-color: #F3F6FB;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.MainController">
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+    <padding>
+        <Insets bottom="30" left="40" right="40" top="30" />
+    </padding>
+
+    <VBox alignment="CENTER" spacing="6">
+
+        <Label style="-fx-font-size: 13px;                       -fx-font-weight: bold;                       -fx-text-fill: #2563EB;" text="KVÍZ" />
+
+        <Label style="-fx-font-size: 25px;                       -fx-font-weight: bold;                       -fx-text-fill: #172033;" text="Teszteld a tudásod!" />
+
+        <Label style="-fx-font-size: 12px;                       -fx-text-fill: #64748B;" text="Töltsd ki a mezőket, majd válaszd ki a helyes választ." wrapText="true" />
+
+    </VBox>
+
+    <VBox fillWidth="true" maxWidth="420" spacing="16" style="-fx-background-color: white;                  -fx-background-radius: 16;                  -fx-border-color: #E2E8F0;                  -fx-border-radius: 16;                  -fx-border-width: 1;                  -fx-effect: dropshadow(gaussian, #D8E1EF, 18, 0.12, 0, 5);">
+
+        <padding>
+            <Insets bottom="24" left="24" right="24" top="24" />
+        </padding>
+
+        <Label style="-fx-font-size: 17px;                       -fx-font-weight: bold;                       -fx-text-fill: #172033;" text="Alapadatok" />
+
+        <HBox alignment="CENTER_LEFT" spacing="10">
+
+            <TextField fx:id="idField" prefWidth="90" promptText="Azonosító" style="-fx-background-radius: 8;                               -fx-border-radius: 8;                               -fx-border-color: #CBD5E1;                               -fx-padding: 10;" />
+
+            <TextField fx:id="questionField" promptText="Kérdés..." style="-fx-background-radius: 8;                               -fx-border-radius: 8;                               -fx-border-color: #CBD5E1;                               -fx-padding: 10;" HBox.hgrow="ALWAYS" />
+
+        </HBox>
+
+        <Pane maxHeight="1" minHeight="1" prefHeight="1" style="-fx-background-color: #E2E8F0;" />
+
+        <Label style="-fx-font-size: 14px;                       -fx-font-weight: bold;                       -fx-text-fill: #334155;" text="Válaszd ki a helyes választ!" />
+
+        <VBox spacing="12">
+
+            <RadioButton fx:id="answer1" style="-fx-font-size: 13px;                                 -fx-text-fill: #334155;" text="A válaszlehetőség">
+                <toggleGroup>
+                    <ToggleGroup fx:id="answers" />
+                </toggleGroup>
+            </RadioButton>
+
+            <RadioButton fx:id="answer2" style="-fx-font-size: 13px;                                 -fx-text-fill: #334155;" text="B válaszlehetőség" toggleGroup="$answers" />
+
+            <RadioButton fx:id="answer3" style="-fx-font-size: 13px;                                 -fx-text-fill: #334155;" text="C válaszlehetőség" toggleGroup="$answers" />
+
+            <RadioButton fx:id="answer4" style="-fx-font-size: 13px;                                 -fx-text-fill: #334155;" text="D válaszlehetőség" toggleGroup="$answers" />
+
+        </VBox>
+
+        <HBox alignment="CENTER" spacing="8">
+
+            <Button onAction="#previousQuestion" prefHeight="42" style="-fx-background-color: #E2E8F0;                            -fx-background-radius: 9;                            -fx-text-fill: #334155;                            -fx-font-size: 12px;                            -fx-cursor: hand;" text="← Előző" />
+
+            <Button maxWidth="Infinity" onAction="#checkAnswer" prefHeight="42" style="-fx-background-color: #2563EB;                            -fx-background-radius: 9;                            -fx-text-fill: white;                            -fx-font-size: 13px;                            -fx-font-weight: bold;                            -fx-cursor: hand;" text="Ellenőrzés" HBox.hgrow="ALWAYS" />
+
+            <Button onAction="#nextQuestion" prefHeight="42" style="-fx-background-color: #E2E8F0;                            -fx-background-radius: 9;                            -fx-text-fill: #334155;                            -fx-font-size: 12px;                            -fx-cursor: hand;" text="Következő →" />
+
+        </HBox>
+
+    </VBox>
+
+    <Label style="-fx-font-size: 11px;                   -fx-text-fill: #94A3B8;" text="Sok sikert a kitöltéshez!" />
+
+</VBox>
